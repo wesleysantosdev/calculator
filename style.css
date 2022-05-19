@@ -2,93 +2,90 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,200&display=swap');
 
 *{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
 }
 
 body{
-    display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
     background-color:#92E0D6;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
 }
 
-main#grid-calculator{
+.container{
+    box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.082);
     display: grid;
     grid-template-columns: repeat(4, 80px);
-    grid-template-rows: repeat(7, 75px);
-    border: none;
-    box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.26);
+    grid-template-rows: 150px 75px 75px 75px 75px 75px;
 } 
 
-main#grid-calculator > #calculator-display{
-    /* this will make the display grid occupy all the columns at once */
-    grid-column: 1 / -1;
-    grid-row: -6 / 1;
+ #calculator-display{
+    align-items: flex-end;
     background-color: #212036;
-    font-size: 1em;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    font-size: 1em;
+    /* this will make the display grid occupy all the columns at once */
+    grid-column: 1 / 5;
     justify-content: space-around;
+    overflow: hidden;
     padding: 10px;
     /*this will make the numbers don't break the line out of the display */
-    word-wrap: break-word;
     word-break: break-all;
+    word-wrap: break-word;
 }
 
-main#grid-calculator > #calculator-display > .previous-operand{
+#calculator-display .previous-operand{
     color: white;
-    font-size: 1.5em;
+    font-size: 1.5rem;
 }
 
-main#grid-calculator > #calculator-display > .current-operand{
+#calculator-display .current-operand{
     color: white;
-    font-size: 2.5em;
+    font-size: 2.5rem;
 }
 
-main#grid-calculator > button{
-    font-size: 1.5em;
-    border: 0.5px solid rgba(0, 0, 0, 0.082);
+.container button{
     background-color: #141321;
+    border: 0.5px solid rgba(0, 0, 0, 0.082);
     color: white;
+    font-size: 1.5rem;
     transition: all 0.3s; 
 }
 
-main#grid-calculator > .operator{
-    background-color: #91e0da;
-    color: #0D1117;
-}
-
-main#grid-calculator > button:hover{
+.container button:hover{
     background-color: #201e35;
     color: white;
 }
 
-main#grid-calculator > .operator:hover{
+.container .operator{
+    background-color: #91e0da;
+    color: #0D1117;
+}
+
+.container .operator:hover{
    background-color: #85cec8;
    color: #141321;
 
 }
 
-/*making the result button twice bigger*/
+/*making the C and < buttons twice bigger (2 columns size for each)*/
 #button-backspace, #button-clear{
     grid-column: span 2;
 }
 
-@media screen and (max-width: 340px){
+@media screen and (max-width: 360px){
     body {
         background-color: #141321;
-        height: 100vh;
     }
 
-    main#grid-calculator{
-        margin: auto;
-        border: none;
+    .container{
         box-shadow: none;
+        margin: 0 auto;
     } 
 }
